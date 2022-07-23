@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/easy_tiktok.iml" filepath="$PROJECT_DIR$/.idea/modules/easy_tiktok.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/easy_tiktok.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/easy_tiktok.app.iml" />
-    </modules>
-  </component>
-</project>
