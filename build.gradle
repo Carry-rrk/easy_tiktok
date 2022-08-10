@@ -3,3 +3,7 @@
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+//dataBinding{
+//    enabled = true
+//}
