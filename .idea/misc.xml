@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/GitHub/easy_tiktok/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/alllistlayout.xml" value="0.3515625" />
+        <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/individuallayout.xml" value="0.2490740740740741" />
+        <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/listlayout.xml" value="0.287962962962963" />
+        <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/videolayout.xml" value="0.2490740740740741" />
       </map>
     </option>
   </component>

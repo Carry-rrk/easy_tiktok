@@ -1,44 +1,61 @@
 package bytedance.example.easy_tiktok;
 
-import androidx.annotation.NonNull;
+import static androidx.constraintlayout.motion.utils.Oscillator.TAG;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.databinding.DataBindingUtil;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-import android.app.Fragment;
-import android.content.Context;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import bytedance.example.easy_tiktok.databinding.ActivityMainBinding;
+import bytedance.example.easy_tiktok.frags.IndividualFragment;
+import bytedance.example.easy_tiktok.frags.ListFragment;
+import bytedance.example.easy_tiktok.frags.VideoFragment;
+import bytedance.example.easy_tiktok.utils.MyFragAdapter;
+import bytedance.example.easy_tiktok.vm.MainVm;
 
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding mainBinding;    //绑定主布局文件
-
+    String[] titles = {"视频","榜单","我的"};
     List<Fragment> fragmentList = new ArrayList<>();
+    View view;
+    MainVm mainvm;
 
-    @Nullable
     @Override
-    public View onCreateView(@Nullable View parent, @NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
-        return super.onCreateView(parent, name, context, attrs);
-//        LayoutInflater inflater = LayoutInflater.from(this);
-//        mainBinding = DataBindingUtil.inflate(inflater,R.layout.activity_main,null,false);
-//        return mainBinding.getRoot();
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        //绑定布局文件
+        mainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+
+        mainvm = new ViewModelProvider(this,new ViewModelProvider.NewInstanceFactory()).get(MainVm.class);
+        mainBinding.setVm(mainvm);
+        mainBinding.setLifecycleOwner(this);
+
+        fragmentList.add(new ListFragment());
+        fragmentList.add(new VideoFragment());
+        fragmentList.add(new IndividualFragment());
+
+        mainBinding.vp.setAdapter(new MyFragAdapter(getSupportFragmentManager(),fragmentList,titles));
+        mainBinding.tablayout.setupWithViewPager(mainBinding.vp);
+
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-
-
+    public class ClickClass{
 
     }
 }
