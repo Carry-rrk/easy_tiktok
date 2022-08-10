@@ -1,4 +1,4 @@
-package bytedance.example.easy_tiktok.utils;
+package bytedance.example.easy_tiktok.vm;
 
 import android.app.Application;
 
