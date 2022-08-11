@@ -9,12 +9,19 @@ import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import bytedance.example.easy_tiktok.R;
 import bytedance.example.easy_tiktok.databinding.ListlayoutBinding;
+import bytedance.example.easy_tiktok.utils.MyFragAdapter;
 
 public class ListFragment extends Fragment {
 
     ListlayoutBinding listlayoutBinding;
+
+    String[] titles = {"电影","电视剧","综艺"};
+    List<Fragment> secFragList = new ArrayList<>();
 
     @Nullable
     @Override
@@ -27,5 +34,13 @@ public class ListFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+        listlayoutBinding.setLifecycleOwner(this);
+
+        secFragList.add(new movieFrag());
+        secFragList.add(new tvFrag());
+        secFragList.add(new showFrag());
+
+        listlayoutBinding.listVp.setAdapter(new MyFragAdapter(getChildFragmentManager(),secFragList,titles));
+        listlayoutBinding.listTab.setupWithViewPager(listlayoutBinding.listVp);
     }
 }

@@ -12,8 +12,4 @@ public class MainVm extends ViewModel {
 
     public MutableLiveData<String> title = new MutableLiveData<>();
 
-    List<Fragment> fragmentList = new ArrayList<>();
-
-
-
 }

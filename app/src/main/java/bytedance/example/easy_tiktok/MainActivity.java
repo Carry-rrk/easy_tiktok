@@ -46,16 +46,12 @@ public class MainActivity extends AppCompatActivity {
         mainBinding.setVm(mainvm);
         mainBinding.setLifecycleOwner(this);
 
-        fragmentList.add(new ListFragment());
         fragmentList.add(new VideoFragment());
+        fragmentList.add(new ListFragment());
         fragmentList.add(new IndividualFragment());
 
         mainBinding.vp.setAdapter(new MyFragAdapter(getSupportFragmentManager(),fragmentList,titles));
         mainBinding.tablayout.setupWithViewPager(mainBinding.vp);
-
-    }
-
-    public class ClickClass{
 
     }
 }

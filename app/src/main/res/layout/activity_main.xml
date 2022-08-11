@@ -7,9 +7,6 @@
         <variable
             name="vm"
             type="bytedance.example.easy_tiktok.vm.MainVm" />
-        <variable
-            name="click"
-            type="bytedance.example.easy_tiktok.MainActivity.ClickClass" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,13 +16,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-<!--            <FrameLayout-->
-<!--                android:id="@+id/tabView"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_weight="1">-->
-
-<!--            </FrameLayout>-->
             <androidx.viewpager.widget.ViewPager
                 android:id="@+id/vp"
                 android:layout_width="match_parent"
@@ -36,24 +26,7 @@
                 android:id="@+id/tablayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-<!--                <com.google.android.material.tabs.TabItem-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-
-<!--                    android:text="视频"/>-->
-<!--                <com.google.android.material.tabs.TabItem-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:onClick="@{click.listTab}"-->
-<!--                    android:text="榜单"/>-->
-<!--                <com.google.android.material.tabs.TabItem-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-
-<!--                    android:text="我的"/>-->
             </com.google.android.material.tabs.TabLayout>
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
-<!--    android:onClick="@{()->click.videoTab()}"android:clickable="@{()->click.listTab()}"android:onClick="@{()->click.individualTab()}"-->
-<!--    android:onClick="@{()->click.MainTabClick()}"-->
