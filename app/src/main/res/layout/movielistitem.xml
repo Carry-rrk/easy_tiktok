@@ -77,11 +77,13 @@
                     android:text="@{movieItems.hots}"></TextView>
             </LinearLayout>
             <Button
-                android:layout_width="80dp"
-                android:layout_height="45dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:gravity="center"
                 android:background="@android:color/holo_red_dark"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
                 android:text="购票">
 
             </Button>

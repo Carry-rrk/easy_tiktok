@@ -12,35 +12,35 @@ import java.util.List;
 
 import bytedance.example.easy_tiktok.BR;
 import bytedance.example.easy_tiktok.R;
-import bytedance.example.easy_tiktok.bean.MovieItem;
+import bytedance.example.easy_tiktok.bean.ShowItem;
 
-public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> {
+public class ShowAdapter extends RecyclerView.Adapter<ShowAdapter.ViewHolder> {
 
-    private List<MovieItem> lists;
-    private OnItemClickListener mOnItemClickListener;
+    private List<ShowItem> lists;
+    private ShowAdapter.OnItemClickListener mOnItemClickListener;
 
-    public MovieAdapter(List<MovieItem> lists) {
+    public ShowAdapter(List<ShowItem> lists) {
         this.lists = lists;
     }
 
     public interface OnItemClickListener{
-        void onItemClick(View v,int position);
+        void onItemClick(View v, int position);
     }
 
-    public void setOnItemClickListener(OnItemClickListener listener){
+    public void setOnItemClickListener(ShowAdapter.OnItemClickListener listener){
         this.mOnItemClickListener = listener;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ViewDataBinding viewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.movielistitem,parent,false);
-        return new ViewHolder(viewDataBinding,mOnItemClickListener);
+    public ShowAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        ViewDataBinding viewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.tvshowitemlayout,parent,false);
+        return new ShowAdapter.ViewHolder(viewDataBinding,mOnItemClickListener);
     }
 
     @Override
-    public void onBindViewHolder(MovieAdapter.ViewHolder holder, int position) {
-        MovieItem movieItem = lists.get(position);
-        holder.viewDataBinding.setVariable(BR.movieItems,lists.get(position));
+    public void onBindViewHolder(ShowAdapter.ViewHolder holder, int position) {
+        ShowItem showItem = lists.get(position);
+        holder.viewDataBinding.setVariable(BR.showItems,lists.get(position));
         holder.viewDataBinding.executePendingBindings();
     }
 
@@ -52,9 +52,9 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ViewDataBinding viewDataBinding;
-        OnItemClickListener listener;
+        ShowAdapter.OnItemClickListener listener;
 
-        public ViewHolder(ViewDataBinding viewDataBinding, OnItemClickListener listener) {
+        public ViewHolder(ViewDataBinding viewDataBinding, ShowAdapter.OnItemClickListener listener) {
             super(viewDataBinding.getRoot());
             this.viewDataBinding = viewDataBinding;
             this.listener = listener;
