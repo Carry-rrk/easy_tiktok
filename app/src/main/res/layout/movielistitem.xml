@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable
+            name="movieItems"
+            type="bytedance.example.easy_tiktok.bean.MovieItem" ></variable>
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/movie_img"
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:src="@{movieItems.img}"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="150dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/movie_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:textSize="20dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:layout_weight="0.8"
+                    android:text="@{movieItems.title}"></TextView>
+                <TextView
+                    android:id="@+id/movie_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:layout_weight="0.5"
+                    android:text="@{movieItems.score}"></TextView>
+                <TextView
+                    android:id="@+id/movie_mark"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:layout_weight="0.5"
+                    android:text="@{movieItems.mark}"></TextView>
+                <TextView
+                    android:id="@+id/movie_timeOn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="10dp"
+                    android:gravity="center"
+                    android:layout_weight="0.5"
+                    android:text="@{movieItems.timeOn}"></TextView>
+                <TextView
+                    android:id="@+id/movie_hots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:gravity="center"
+                    android:textSize="10dp"
+                    android:text="@{movieItems.hots}"></TextView>
+            </LinearLayout>
+            <Button
+                android:layout_width="80dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_vertical"
+                android:gravity="center"
+                android:background="@android:color/holo_red_dark"
+                android:text="购票">
+
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</layout>

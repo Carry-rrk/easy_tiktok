@@ -35,6 +35,8 @@ android {
 
 dependencies {
 
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+
     implementation 'com.squareup.okhttp3:okhttp:4.4.0'          //okhttp网络请求库依赖
 //    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
 //    implementation 'androidx.navigation:navigation-fragment:2.2.2'

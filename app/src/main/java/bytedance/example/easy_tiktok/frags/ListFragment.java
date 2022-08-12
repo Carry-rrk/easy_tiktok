@@ -42,5 +42,7 @@ public class ListFragment extends Fragment {
 
         listlayoutBinding.listVp.setAdapter(new MyFragAdapter(getChildFragmentManager(),secFragList,titles));
         listlayoutBinding.listTab.setupWithViewPager(listlayoutBinding.listVp);
+
+
     }
 }

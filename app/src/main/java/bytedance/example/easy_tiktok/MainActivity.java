@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bytedance.example.easy_tiktok.databinding.ActivityMainBinding;
+import bytedance.example.easy_tiktok.databinding.MovielistitemBinding;
 import bytedance.example.easy_tiktok.frags.IndividualFragment;
 import bytedance.example.easy_tiktok.frags.ListFragment;
 import bytedance.example.easy_tiktok.frags.VideoFragment;
