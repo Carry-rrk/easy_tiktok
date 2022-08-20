@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
-    private String mScope = "user_info,trial.whitelist,discovery.ent";
+    private String mScope = "user_info,trial.whitelist,discovery.ent,video.list,video.data,following.list,fans.list,fans.check";
     DouYinOpenApi douYinOpenApi;;
     private String clientkey ="awtpi7iykd02xini";
     String[] mPermissionList = new String[] {
@@ -49,13 +49,11 @@ public class MainActivity extends AppCompatActivity {
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                movie_internet mi = new movie_internet();
-                mi.init(clientkey,"bd48ef702cfa7aef1f11d3ae7974e96c");
-//                Log.d("rrkdebug",mi.getClient_token()+"???");
-                ArrayList<MovieItem> tmp =  mi.get_movielist(1);
-                for(int kk = 0;kk<tmp.size();kk++) {
-                    Log.d("rrkdebug", tmp.size() + tmp.get(kk).toString());
-                }
+                sendAuth();
+//                video_tool vt = new video_tool();
+//                vt.get_list();
+//                userinfo_tools ut = new userinfo_tools();
+//                ut.get_user_info();
             }
         });
     }
