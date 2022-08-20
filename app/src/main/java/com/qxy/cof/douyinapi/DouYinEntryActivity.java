@@ -80,11 +80,16 @@ public class DouYinEntryActivity extends Activity implements IApiEventHandler  {
                                  public void onResponse(Call call, okhttp3.Response response) throws IOException {
                                     String s = response.body().string();
                                      String ac_token = null;
+                                     String open_id = null;
+
                                      try {
                                          ac_token = new JSONObject(s).getJSONObject("data").getString("access_token");
+                                         open_id = new JSONObject(s).getJSONObject("data").getString("open_id");
+
                                      } catch (JSONException e) {
                                          e.printStackTrace();
                                      }
+                                     Log.d("rrkdebug", "response: " +open_id );
                                      Log.d("rrkdebug", "response: " +ac_token );
                                  }
                              }

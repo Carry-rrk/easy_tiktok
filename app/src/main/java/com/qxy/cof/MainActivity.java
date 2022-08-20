@@ -23,7 +23,7 @@ import com.bytedance.sdk.open.douyin.api.DouYinOpenApi;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    private String mScope = "user_info,trial.whitelist,discovery.ent";
+    private String mScope = "user_info,trial.whitelist,discovery.ent,video.list,video.data,following.list,fans.list,fans.check";
     DouYinOpenApi douYinOpenApi;;
     private String clientkey ="awtpi7iykd02xini";
     String[] mPermissionList = new String[] {
@@ -45,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 sendAuth();
+//                video_tool vt = new video_tool();
+//                vt.get_list();
+//                userinfo_tools ut = new userinfo_tools();
+//                ut.get_user_info();
             }
         });
     }
