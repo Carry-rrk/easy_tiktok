@@ -7,6 +7,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,7 +23,11 @@ import com.bytedance.sdk.open.douyin.api.DouYinOpenApi;
 
 import org.json.JSONException;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
+import java.util.List;
+
 import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         Button but = findViewById(R.id.button);
         DouYinOpenApiFactory.init(new DouYinOpenConfig(clientkey));
         douYinOpenApi = DouYinOpenApiFactory.create(this);
-//        Log.d("rrkdebug",""+(douYinOpenApi==null));
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
