@@ -20,7 +20,10 @@ import com.bytedance.sdk.open.douyin.DouYinOpenApiFactory;
 import com.bytedance.sdk.open.douyin.DouYinOpenConfig;
 import com.bytedance.sdk.open.douyin.api.DouYinOpenApi;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class MainActivity extends AppCompatActivity {
     private String mScope = "user_info,trial.whitelist,discovery.ent,video.list,video.data,following.list,fans.list,fans.check";
@@ -44,11 +47,19 @@ public class MainActivity extends AppCompatActivity {
         but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendAuth();
+//                sendAuth();
 //                video_tool vt = new video_tool();
-//                vt.get_list();
-//                userinfo_tools ut = new userinfo_tools();
-//                ut.get_user_info();
+//                try {
+//                    Vector<video_Item> vi = vt.getVideo(vt.get_list());
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+                userinfo_tools ut = new userinfo_tools();
+               Vector<fans_or_follows> follow = ut.getFollows();
+               for(int i=0;i<follow.size();i++)
+               {
+                   Log.d("rrkdebug",follow .get(i).toString());
+               }
             }
         });
     }
