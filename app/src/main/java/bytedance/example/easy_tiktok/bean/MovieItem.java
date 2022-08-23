@@ -1,29 +1,48 @@
 package bytedance.example.easy_tiktok.bean;
 
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
 
+import java.util.Vector;
+
 import bytedance.example.easy_tiktok.BR;
 
 public class MovieItem extends BaseObservable {
 
-    Drawable img;//图片
+    Vector<String> actors;
+    Vector<String> directors;
+    long discussion_hot;
+    long hot;
+    long influence_hot;
+    String id;
+    String maoyan_id;
     String title;//电影名称
-    String score;//豆瓣评分
-    String mark;//标记、电影类别
+    String name_en;
+    BitmapDrawable img;//图片
     String timeOn;//上映时间
-    String hots;//热度
+    long search_hot;
+    long topic_hot;
+    String mark;//标记、电影类别\
 
-    public MovieItem(Drawable img, String title, String score, String mark, String timeOn, String hots) {
-        this.img = img;
+    public MovieItem(Vector<String> actors, Vector<String> directors, long discussion_hot, long hot, long influence_hot, String id, String maoyan_id, String title, String name_en, BitmapDrawable img, String timeOn, long search_hot, long topic_hot, String mark) {
+        this.actors = actors;
+        this.directors = directors;
+        this.discussion_hot = discussion_hot;
+        this.hot = hot;
+        this.influence_hot = influence_hot;
+        this.id = id;
+        this.maoyan_id = maoyan_id;
         this.title = title;
-        this.score = score;
-        this.mark = mark;
+        this.name_en = name_en;
+        this.img = img;
         this.timeOn = timeOn;
-        this.hots = hots;
+        this.search_hot = search_hot;
+        this.topic_hot = topic_hot;
+        this.mark = mark;
     }
 
     @Bindable
@@ -31,7 +50,7 @@ public class MovieItem extends BaseObservable {
         return img;
     }
 
-    public void setImg(Drawable img) {
+    public void setImg(BitmapDrawable img) {
         this.img = img;
         notifyPropertyChanged(BR.img);
     }
@@ -48,11 +67,11 @@ public class MovieItem extends BaseObservable {
 
     @Bindable
     public String getScore() {
-        return score;
+        return maoyan_id;
     }
 
-    public void setScore(String score) {
-        this.score = score;
+    public void setScore(String maoyan_id) {
+        this.maoyan_id = maoyan_id;
         notifyPropertyChanged(BR.score);
     }
 
@@ -78,11 +97,11 @@ public class MovieItem extends BaseObservable {
 
     @Bindable
     public String getHots() {
-        return hots;
+        return String.valueOf(hot);
     }
 
-    public void setHots(String hots) {
-        this.hots = hots;
+    public void setHots(String hot) {
+        this.hot = Integer.parseInt(hot);
         notifyPropertyChanged(BR.hots);
     }
 }
