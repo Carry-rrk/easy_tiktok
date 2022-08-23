@@ -1,6 +1,9 @@
 package bytedance.example.easy_tiktok.frags;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +27,13 @@ import bytedance.example.easy_tiktok.utils.ShowAdapter;
 public class showFrag extends Fragment {
 
     ShowlayoutBinding showlayoutBinding;
-    List<ShowItem> showEvents = new ArrayList<>();
+    List<MovieItem> movieEvents = new ArrayList<>();
+//    List<ShowItem> showEvents = new ArrayList<>();
+
+
+    public showFrag(List<MovieItem> movieEvents) {
+        this.movieEvents = movieEvents;
+    }
 
     @Nullable
     @Override
@@ -37,18 +46,18 @@ public class showFrag extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        showEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        showEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        showEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        showEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        showEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        showEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        showEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        showEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        showEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
+//        movie_internet mi = new movie_internet();
+//        mi.init("awtpi7iykd02xini","bd48ef702cfa7aef1f11d3ae7974e96c");
+//        ArrayList<MovieItem>  mit = mi.get_movielist(3);
+//        Log.d(TAG, "FFFFFFFFFFFFF----------------->onActivityCreated: "+mit.size());
+//        for(int i =0;i< mit.size();i++) {
+//            movieEvents.add(mit.get(i));
+//        }
+
 
         showlayoutBinding.showRecView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        showlayoutBinding.showRecView.setAdapter(new ShowAdapter(showEvents));
+        showlayoutBinding.showRecView.setAdapter(new MovieAdapter(movieEvents));
+//        showlayoutBinding.showRecView.setAdapter(new ShowAdapter(showEvents));
 
     }
 

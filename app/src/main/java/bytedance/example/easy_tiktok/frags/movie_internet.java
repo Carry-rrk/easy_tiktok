@@ -1,8 +1,11 @@
-package com.qxy.data;
+package bytedance.example.easy_tiktok.frags;
+
+import static android.content.ContentValues.TAG;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
+import android.util.Log;
 
 
 import org.json.JSONException;
@@ -155,30 +158,36 @@ public class movie_internet {
             e.printStackTrace();
         }
         try {
+//            Log.d(TAG, "FFFFFF---------->get_movielist: "+respStr[0]);
             String list_movie = new JSONObject(respStr[0]).getJSONObject("data").getString("list");
             list_movie = list_movie.substring(1,list_movie.length()-1);
             list_m =  list_movie.split("\\},");
+//            Log.d(TAG, "get_movielist: dddddddddddddddddddddd+++++::::::"+list_m.length);
             for(int i=0;i<list_m.length;i++){
                 list_m[i]+="}";
                 JSONObject mov  = new JSONObject(list_m[i]);
-                String actTmp = mov.getString("actors");
+                String actTmp = "";
+                if(!mov.isNull("actors")) actTmp = mov.getString("actors");
                 Vector<String> actors  = WordSplitting(actTmp);
-                for(int j  =0;j<actors.size();j++)
-                {
+                for(int j  =0;j<actors.size();j++) {
                     actors.set(j,actors.get(j).substring(1,actors.get(j).length()-1));
                 }
-                String dirTmp = mov.getString("directors");
-                Vector<String> directors = WordSplitting(dirTmp);
-                for(int j  =0;j<directors.size();j++)
-                {
-                    directors.set(j,directors.get(j).substring(1,directors.get(j).length()-1));
-                }
+                String dirTmp = "";
+                Vector<String> directors = new Vector<>();
+                if (!mov.isNull("directors")) {
+                    mov.getString("directors");
+                    directors = WordSplitting(dirTmp);
+                    for(int j  =0;j<directors.size();j++) {
+                        directors.set(j,directors.get(j).substring(1,directors.get(j).length()-1));
+                    }
+                }else directors.add("暂无信息");
 
                 long dis_hot = mov.getLong("discussion_hot");
                 long hot = mov.getLong("hot");
                 long inf_hot = mov.getLong("influence_hot");
                 String id = mov.getString("id");
-                String maoyan_id = mov.getString("maoyan_id");
+//                String maoyan_id = mov.getString("maoyan_id");
+                String score = "暂无评分";
                 String title  = mov.getString("name");
                 String name_en = mov.getString("name_en");
 
@@ -196,21 +205,24 @@ public class movie_internet {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                String timeOn = mov.getString("release_date");
-                long s_hot = mov.getLong("search_hot");
+                String timeOn = "上映时间:"+mov.getString("release_date");
+                String s_hot = "热度:"+(mov.getLong("search_hot")/10000L)+"万";
+//                long s_hot = mov.getLong("search_hot");
                 long t_hot = mov.getLong("topic_hot");
-                String mark = mov.getString("type");
+//                String mark = mov.getString("type");
+                String mark = "";
+                if(!mov.isNull("tags")) mark = mov.getString("tags").substring(1,mov.getString("tags").length()-1);
                 BitmapDrawable a = new BitmapDrawable(img[0]);
-                MovieItem mm = new MovieItem(actors,directors,dis_hot,hot,inf_hot,id,maoyan_id,title,name_en,a,timeOn,s_hot,t_hot,mark);
+                MovieItem mm = new MovieItem(actors,directors,dis_hot,hot,inf_hot,id,score,title,name_en,a,timeOn,s_hot,t_hot,mark);
                 res.add(mm);
+//                Log.d(TAG, "resresres!!!get_movielist: "+res.size());
             }
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
-
-
+//        Log.d(TAG, "======================================>get_movielist: "+res.size());
         return res;
     }
 }

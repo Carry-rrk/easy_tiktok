@@ -1,6 +1,9 @@
 package bytedance.example.easy_tiktok.frags;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +17,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bytedance.example.easy_tiktok.R;
+import bytedance.example.easy_tiktok.bean.MovieItem;
 import bytedance.example.easy_tiktok.bean.ShowItem;
 import bytedance.example.easy_tiktok.databinding.TvlayoutBinding;
+import bytedance.example.easy_tiktok.utils.MovieAdapter;
 import bytedance.example.easy_tiktok.utils.ShowAdapter;
 
 public class tvFrag extends Fragment {
 
     TvlayoutBinding tvlayoutBinding;
-    List<ShowItem> tvEvents = new ArrayList<>();
+    List<MovieItem> movieEvents = new ArrayList<>();
+//    List<ShowItem> tvEvents = new ArrayList<>();
+
+    public tvFrag(List<MovieItem> movieEvents) {
+        this.movieEvents = movieEvents;
+    }
 
     @Nullable
     @Override
@@ -34,20 +44,17 @@ public class tvFrag extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!","赵丽颖 / 刘威 唐曾","共40集","2018年11月","982w"));
-        tvEvents.add(new ShowItem(null,"人生大事情1!!"," / 刘威 唐曾","共40集","2018年11月","982w"));
+//        movie_internet mi = new movie_internet();
+//        mi.init("awtpi7iykd02xini","bd48ef702cfa7aef1f11d3ae7974e96c");
+//        ArrayList<MovieItem>  mit = mi.get_movielist(2);
+//        Log.d(TAG, "FFFFFFFFFFFFF----------------->onActivityCreated: "+mit.size());
+//        for(int i =0;i< mit.size();i++) {
+//            movieEvents.add(mit.get(i));
+//        }
 
         tvlayoutBinding.tvRecView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        tvlayoutBinding.tvRecView.setAdapter(new ShowAdapter(tvEvents));
+        tvlayoutBinding.tvRecView.setAdapter(new MovieAdapter(movieEvents));
+//        tvlayoutBinding.tvRecView.setAdapter(new ShowAdapter(tvEvents));
 
     }
 }

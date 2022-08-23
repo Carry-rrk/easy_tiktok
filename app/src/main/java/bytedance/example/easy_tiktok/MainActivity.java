@@ -23,7 +23,7 @@ import bytedance.example.easy_tiktok.vm.MainVm;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding mainBinding;    //绑定主布局文件
-    String[] titles = {"Tab1","Tab2","Tab3"};
+    String[] titles = {"视频","榜单","我的"};
     List<Fragment> fragmentList = new ArrayList<>();
     View view;
     MainVm mainvm;
