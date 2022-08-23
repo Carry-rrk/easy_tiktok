@@ -7,17 +7,17 @@
         <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/alllistlayout.xml" value="0.3515625" />
         <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/individuallayout.xml" value="0.2490740740740741" />
-        <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/listlayout.xml" value="0.36614583333333334" />
+        <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/listlayout.xml" value="0.1" />
         <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/movielayout.xml" value="0.1" />
         <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/movielistitem.xml" value="0.25743589743589745" />
         <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/showlayout.xml" value="0.36614583333333334" />
-        <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/tvlayout.xml" value="0.36614583333333334" />
+        <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/tvlayout.xml" value="0.1" />
         <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/tvshowitemlayout.xml" value="0.25743589743589745" />
         <entry key="..\:/GitProject/easy_tiktok/app/src/main/res/layout/videolayout.xml" value="0.2490740740740741" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

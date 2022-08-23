@@ -16,7 +16,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class MyOkHttp {
-    OkHttpClient client;
+    OkHttpClient client;    //OkHttpClient对象
     String url;         //目标网络地址
     Request request;    //请求
     Response response;  //响应
