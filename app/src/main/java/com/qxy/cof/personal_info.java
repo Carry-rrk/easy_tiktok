@@ -10,20 +10,12 @@ public class personal_info
     private BitmapDrawable avatar;
     private BitmapDrawable bigAvatar;
 
-    private int followers;
-    private int follows;
+    private Vector<fans_or_follows> fans;
+    private Vector<fans_or_follows> follows;
     private String location;
     private Vector<video_Item> video;
 
-    public personal_info(String nickname, BitmapDrawable avatar, BitmapDrawable bigAvatar, int followers, int follows, String location, Vector<video_Item> video) {
-        this.nickname = nickname;
-        this.avatar = avatar;
-        this.bigAvatar = bigAvatar;
-        this.followers = followers;
-        this.follows = follows;
-        this.location = location;
-        this.video = video;
-    }
+
 
     public BitmapDrawable getBigAvatar() {
         return bigAvatar;
@@ -49,19 +41,29 @@ public class personal_info
         this.avatar = avatar;
     }
 
-    public int getFollowers() {
-        return followers;
+    public personal_info(String nickname, BitmapDrawable avatar, BitmapDrawable bigAvatar, Vector<fans_or_follows> followers, Vector<fans_or_follows> fans, String location, Vector<video_Item> video) {
+        this.nickname = nickname;
+        this.avatar = avatar;
+        this.bigAvatar = bigAvatar;
+        this.fans = fans;
+        this.follows = follows;
+        this.location = location;
+        this.video = video;
     }
 
-    public void setFollowers(int followers) {
-        this.followers = followers;
+    public Vector<fans_or_follows> getFans() {
+        return fans;
     }
 
-    public int getFollows() {
+    public void setFans(Vector<fans_or_follows> fans) {
+        this.fans = fans;
+    }
+
+    public Vector<fans_or_follows> getFollows() {
         return follows;
     }
 
-    public void setFollows(int follows) {
+    public void setFollows(Vector<fans_or_follows> follows) {
         this.follows = follows;
     }
 
@@ -79,5 +81,18 @@ public class personal_info
 
     public void setVideo(Vector<video_Item> video) {
         this.video = video;
+    }
+
+    @Override
+    public String toString() {
+        return "personal_info{" +
+                "nickname='" + nickname + '\'' +
+                ", avatar=" + avatar +
+                ", bigAvatar=" + bigAvatar +
+                ", fans=" + fans +
+                ", follows=" + follows +
+                ", location='" + location + '\'' +
+                ", video=" + video +
+                '}';
     }
 }

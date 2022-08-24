@@ -108,8 +108,8 @@ public class userinfo_tools {
                         respStr[0] = resp.body().string();
                         JSONObject data = new JSONObject(respStr[0]).getJSONObject("data");
                         JSONArray ls = data.getJSONArray("list");
-                        Log.d("rrkdebug",respStr[0]);
-//                        hasnext[0] = data.getBoolean("has_more");
+//                        Log.d("rrkdebug",respStr[0]);
+                        hasnext[0] = data.getBoolean("has_more");
 //                        hasnext[0] = false;
                         for(int i=0;i<ls.length();i++)
                         {
@@ -119,6 +119,7 @@ public class userinfo_tools {
                         cursor[0] =data.getInt("cursor");
 //                    Log.d("rrkdebug", "run: "+respStr[0]);
                     } catch (Exception e) {
+                        Log.d("rrkdebug","error on"+respStr[0]);
                         e.printStackTrace();
                     }
                 }
@@ -132,8 +133,9 @@ public class userinfo_tools {
         }
         return res;
     }
-    public void get_user_info()
+    public personal_info    get_user_info()
     {
+        final personal_info[] res = {null};
         RequestBody rb = new FormBody.Builder()
                 .add("access_token",acess_token)
                 .add("open_id",open_id)
@@ -148,15 +150,20 @@ public class userinfo_tools {
             public void run() {
                 {
                     Response resp;
-                    String a,str;
+                    String a,name,avatar,avatar_larger,location;
 
                     {
                         try {
                             resp = httpClient.newCall(re).execute();
                             a = resp.body().string();
-                            Log.d("rrkdebug", "run: "+a);
-//                            str  = new JSONObject(a).getJSONObject("data").getString("access_token");
-
+//                            Log.d("rrkdebug", "run: "+a);
+                            JSONObject data = new JSONObject(a).getJSONObject("data");
+                            name = data.getString("nickname");
+                            avatar = data.getString("avatar");
+                            avatar_larger = data.getString("avatar_larger");
+                            location = data.getString("city");
+                            video_tool vt = new video_tool();
+                            res[0] = new personal_info(name,new BitmapDrawable(getURLimage(avatar)),new BitmapDrawable(getURLimage(avatar_larger)),getFans(),getFollows(),location,vt.getVideo(vt.get_list()));
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -171,5 +178,6 @@ public class userinfo_tools {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        return res[0];
     }
 }

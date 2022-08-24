@@ -59,11 +59,13 @@ public class MainActivity extends AppCompatActivity {
 //                    e.printStackTrace();
 //                }
                 userinfo_tools ut = new userinfo_tools();
-               Vector<fans_or_follows> follow = ut.getFollows();
-               for(int i=0;i<follow.size();i++)
-               {
-                   Log.d("rrkdebug",follow .get(i).toString());
-               }
+                personal_info person = ut.get_user_info();
+                Log.d("rrkdebug",person.toString());
+//               Vector<fans_or_follows> follow = ut.getFollows();
+//               for(int i=0;i<follow.size();i++)
+//               {
+//                   Log.d("rrkdebug",follow .get(i).toString());
+//               }
             }
         });
     }
